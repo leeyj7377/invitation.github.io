@@ -228,7 +228,7 @@ section {
 .banner {
   height: 300px;
   background: url(../images/banner.jpg) bottom no-repeat;
-  background-size: cover;
+  background-size: contain;
   background-attachment: fixed;
 }
 .banner .title-wrap {
