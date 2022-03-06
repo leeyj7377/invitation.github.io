@@ -1,0 +1,422 @@
+@charset "UTF-8";
+
+@import '../common/variable',
+'../common/mixin';
+
+* {
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+  box-sizing: border-box
+}
+
+::before, ::after {
+  box-sizing: border-box
+}
+
+
+/* HTML5 display-role reset for older browsers */
+body {
+  font-family: "NanumMyeongjo", sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  line-height:1.7;
+  color: $CGray;
+  word-break: keep-all;
+  word-wrap: break-word;
+}
+
+button {
+  line-height: 1;
+  font-family: "NanumMyeongjo", sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+  color: $CGray;
+  background: none;
+}
+
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after, q:before, q:after {
+  content: '';
+  display: block;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-size: 0;
+  font-weight: 500;
+  color: $CGray;
+}
+
+strong {
+  font-weight: 700
+}
+
+/* 테이블 스타일 초기화 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  empty-cells: show;
+  table-layout:fixed;
+}
+
+th, td {
+  font-weight: 500
+}
+
+td {
+  word-wrap: break-word;
+  word-break: break-word;
+}
+
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+legend, caption {
+  visibility: hidden;
+  overflow: hidden;
+  width: 0;
+  height: 0;
+  font-size: 0;
+  line-height: 0;
+}
+
+address, caption, em, var {
+  font-style: normal;
+  font-weight: 500;
+}
+
+/* 링크 */
+a {
+  color: $CGray;
+  text-decoration: none;
+  outline: none;
+}
+
+/* 이미지, 폼관련 요소 */
+img {
+  border: 0;
+  vertical-align: top;
+  max-width: 100%;
+}
+
+label,
+select,
+input,
+textarea {
+  vertical-align: middle
+}
+
+input,
+select,
+textarea {
+  font-size: 1em;
+  vertical-align: middle
+}
+
+input[type="text"],
+input[type="submit"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="reset"],
+input[type="email"], input[type="tel"],
+input[type="search"],
+input[type="file"],
+input[type="email"],
+input[type="tel"],
+textarea {
+  width: 100%;
+  height: 40px;
+  box-sizing: border-box;
+  color: $CGray;
+  @include prefix(appearance, none, webkit moz);
+  outline: none;
+  border-radius: 0;
+  border: none;
+  font-size: 15px;
+  padding: 9px 0;
+  border-bottom: 1px solid #c6dfe7;
+  font-family: "NanumMyeongjo", sans-serif;
+}
+
+
+input[type="file"] {
+  display: block;
+  -webkit-appearance: none;
+  appearance: none;
+  padding: 0;
+  width: 0;
+  height: 0;
+  border: 0;
+  vertical-align: middle;
+}
+
+input[type=range] {
+  -webkit-appearance: none;
+  width: 100%;
+  background: transparent;
+}
+
+input[type="submit"] {
+  cursor: pointer
+}
+
+input[readonly] {
+  background: #fff;
+  color: #000;
+}
+
+input:disabled {
+  background: #fff
+}
+
+input[type="text"],
+input[type="password"] {
+  @include prefix(transition, all 0.3s ease-in-out, webkit);
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="tel"]:focus,
+textarea:focus,
+input[type="text"]:hover,
+input[type="password"]:hover,
+input[type="tel"]:hover,
+textarea:hover {
+  outline: none
+}
+
+input[type=range]:focus {
+  outline: none;
+}
+
+input[type="text"]::-ms-clear {
+  width: 0;
+  height: 0;
+  display: none;
+}
+
+select {
+  box-sizing: border-box;
+  @include prefix(appearance, none, webkit moz);
+  border-radius: 0;
+  outline: none;
+  width: 100%;
+  height: 40px;
+  color: $CBrand;
+  border: none;
+  border-bottom: 1px solid #c6dfe7;
+  font-family: "NanumMyeongjo", sans-serif;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+option.title {
+  display: none
+}
+
+textarea {
+  border: solid 1px #b8bcc1;
+  height: 90px;
+  box-sizing: border-box;
+  padding: 10px;
+  width: 100%;
+  border-radius: 0;
+  overflow: auto;
+  @include prefix(appearance, none, webkit moz);
+}
+
+button {
+  border: 0;
+  box-shadow: none;
+  cursor: pointer;
+  @include prefix(appearance, none, webkit moz);
+}
+
+button:focus,
+button:hover {
+  outline: none
+}
+
+input[type="radio"],
+input[type="checkbox"] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  @include prefix(appearance, none, webkit moz ms o);
+}
+
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+input::-webkit-input-placeholder {
+  color: $CGray2;
+}
+
+input::-moz-placeholder {
+  color: $CGray2;;
+}
+
+input::-ms-input-placeholder {
+  color: $CGray2;
+}
+
+input::-webkit-input-placeholder {
+  color: $CGray2;
+}
+
+input:-moz-placeholder {
+  color: $CGray2;
+}
+
+input:-ms-input-placeholder {
+  color: $CGray2;
+}
+
+input::-ms-input-placeholder {
+  color: $CGray2;
+}
+
+input::placeholder {
+  color: $CGray2;
+}
+
+input::-ms-clear {
+  display: none
+}
+
+input::-ms-reveal {
+  display: none
+}
+
+textarea::-webkit-input-placeholder {
+  color: $CGray2;
+}
+
+textarea::-moz-placeholder {
+  color: $CGray2;
+}
+
+textarea::-ms-input-placeholder {
+  color: $CGray2;
+}
+
+textarea::-webkit-input-placeholder {
+  color: $CGray2;
+}
+
+textarea:-moz-placeholder {
+  color: $CGray2;
+}
+
+textarea:-ms-input-placeholder {
+  color: $CGray2;
+}
+
+textarea::-ms-input-placeholder {
+  color: $CGray2;
+}
+
+textarea::placeholder {
+  color: $CGray2;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input:focus::-webkit-input-placeholder,
+textarea:focus::-webkit-input-placeholder,
+input:focus::-moz-placeholder,
+textarea:focus::-moz-placeholder,
+input:focus::-ms-input-placeholder,
+textarea:focus::-ms-input-placeholder {
+  color: transparent
+}
+
+.hidden {
+  position: absolute;
+  width: 0;
+  height: 0;
+  font-size: 0;
+  line-height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+.t {
+  &-l {
+    text-align: left !important;
+  }
+
+  &-r {
+    text-align: right !important;
+  }
+
+  &-c {
+    text-align: center !important;
+  }
+}
+
+img.max {
+  width: 100%;
+}
+
+
+::-webkit-scrollbar {
+  width: 2px;
+  height: 2px
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1
+}
+
+::-webkit-scrollbar-thumb {
+  background: #a7a7a7
+}
+
+@include mobile {
+  input[type="text"],
+  input[type="submit"],
+  input[type="password"],
+  input[type="search"],
+  input[type="number"],
+  input[type="reset"],
+  input[type="email"], input[type="tel"],
+  input[type="search"],
+  input[type="email"],
+  input[type="tel"] {
+    height: 36px;
+  }
+}

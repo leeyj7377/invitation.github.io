@@ -1,0 +1,37 @@
+@charset "UTF-8";
+
+@font-face {
+    font-weight: normal;
+    font-style: normal;
+    font-family: 'AnsteryScript';
+    src:
+    url(../fonts/AnsteryScript.woff) format('woff');
+}
+
+@font-face {
+    font-weight: normal;
+    font-style: normal;
+    font-family: 'CormorantUnicase';
+    src:
+    url(../fonts/CormorantUnicase-Regular.woff) format('woff');
+}
+
+@font-face {
+    font-weight: 500;
+    font-style: normal;
+    font-family: 'NanumMyeongjo';
+    src: url(../fonts/NanumMyeongjo-Regular.eot);
+    src: url(../fonts/NanumMyeongjo-Regular.eot?#iefix) format('embedded-opentype'),
+    url(../fonts/NanumMyeongjo-Regular.woff) format('woff'),
+    url(../fonts/NanumMyeongjo-Regular.ttf) format('truetype');
+}
+
+@font-face {
+    font-weight: 700;
+    font-style: normal;
+    font-family: 'NanumMyeongjo';
+    src: url(../fonts/NanumMyeongjo-Bold.eot);
+    src: url(../fonts/NanumMyeongjo-Bold.eot?#iefix) format('embedded-opentype'),
+    url(../fonts/NanumMyeongjo-Bold.woff) format('woff'),
+    url(../fonts/NanumMyeongjo-Bold.ttf) format('truetype');
+}

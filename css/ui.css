@@ -1,0 +1,356 @@
+@charset "UTF-8";
+section {
+  position: relative;
+  text-align: center;
+  overflow: hidden;
+}
+
+#main {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.visual {
+  text-align: right;
+}
+.visual-img {
+  padding: 0 10vw 15vw;
+  position: relative;
+}
+.visual-title {
+  font-family: "AnsteryScript", sans-serif;
+  position: absolute;
+  right: 6vw;
+  bottom: 0;
+  font-size: 4rem;
+  line-height: 1;
+}
+.visual .date {
+  font-family: "CormorantUnicase", sans-serif;
+  padding: 5vw 10vw 1vw;
+}
+.visual .name {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 3.5vw;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.intro {
+  padding: 100px 0 60px;
+}
+
+.profile {
+  position: relative;
+  padding: 120px 0;
+}
+.profile:before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1px;
+  height: 60px;
+  background: #ddd;
+  top: 0;
+}
+.profile p {
+  font-size: 1.2em;
+  letter-spacing: 0.1em;
+}
+.profile .gray {
+  color: #a3a3a3;
+  font-size: 0.9em;
+}
+
+.gallery-top {
+  position: relative;
+  height: 80%;
+  width: calc(100% - 20px);
+  margin: 0 10px;
+}
+.gallery-thumbs {
+  height: 20%;
+  box-sizing: border-box;
+  padding: 10px 0;
+}
+.gallery-thumbs .swiper-wrapper {
+  margin-left: -33%;
+}
+.gallery-thumbs .swiper-wrapper.reset {
+  margin-left: 0;
+}
+.gallery-thumbs .swiper-slide {
+  width: 30%;
+  height: 100%;
+  opacity: 0.6;
+}
+.gallery-thumbs .swiper-slide-active {
+  opacity: 1;
+}
+
+.calendar {
+  margin: 120px 0;
+  padding: 50px 0;
+  background: #f9f9f9;
+}
+.calendar table {
+  width: 84%;
+  margin: 0 auto;
+  table-layout: fixed;
+}
+.calendar table tr th, .calendar table tr td {
+  padding: 10px 5px;
+}
+.calendar table tr th:first-child, .calendar table tr td:first-child {
+  color: #B53939;
+}
+.calendar table tr th {
+  font-family: "CormorantUnicase", sans-serif;
+}
+.calendar table tr td.d-day {
+  position: relative;
+  color: #fff;
+  z-index: 1;
+}
+.calendar table tr td.d-day:before {
+  content: "";
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #B53939;
+  border-radius: 100%;
+  z-index: -1;
+}
+.calendar .detail {
+  margin-top: 35px;
+  letter-spacing: 0.09em;
+}
+
+.location .map {
+  border-bottom: 1px solid #dfdfdf;
+  height: 210px;
+  overflow: hidden;
+}
+.location .info {
+  padding: 50px 0;
+  background: #f9f9f9;
+}
+.location .address {
+  color: #000000;
+  line-height: 2;
+}
+.location .address .focus {
+  font-size: 1.4em;
+}
+.location .address .focus strong {
+  font-weight: 600;
+}
+.location .line {
+  margin: 50px auto;
+  width: 50px;
+  height: 1px;
+  background: #ddd;
+}
+.location .guide {
+  text-align: left;
+  padding: 0 8vw;
+}
+.location .guide dl + dl {
+  margin-top: 30px;
+}
+.location .guide dl dt {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: #000000;
+}
+.location .guide dl dd {
+  margin-top: 10px;
+  font-size: 0.9em;
+}
+.location .guide .up {
+  font-size: 1.1em;
+}
+
+.contact {
+  padding: 120px 8vw;
+}
+.contact dl {
+  border: 1px solid #ddd;
+}
+.contact dl dt {
+  background: #f9f9f9;
+  padding: 6px 0;
+  color: #000000;
+}
+.contact dl dd {
+  font-size: 0.9em;
+  text-align: left;
+  padding: 15px;
+}
+.contact dl + dl {
+  margin-top: 30px;
+}
+.contact .desc {
+  font-size: 0.85em;
+  margin: 50px 0;
+}
+.contact .grid + .grid {
+  margin-top: 15px;
+}
+.contact .grid .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #000000;
+  font-size: 0.9em;
+}
+.contact .grid .item + .item {
+  padding-left: 50px;
+  margin-top: 5px;
+}
+.contact .grid .tit {
+  display: inline-flex;
+  width: 50px;
+  color: #999;
+}
+.contact #copyTarget {
+  position: absolute;
+  top: -9999em;
+  left: -9999em;
+}
+
+.banner {
+  height: 300px;
+  background: url(../images/banner.jpg) bottom no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+.banner .title-wrap {
+  width: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+.banner .title-wrap .en {
+  font-family: "AnsteryScript", sans-serif;
+  font-size: 3em;
+  line-height: 1;
+}
+
+.title {
+  position: relative;
+  font-size: 1.4em;
+  padding-bottom: 10px;
+  margin-bottom: 35px;
+}
+.title:after {
+  content: "";
+  width: 20px;
+  height: 1px;
+  background: #000000;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+}
+
+.list-type {
+  margin-top: 10px;
+}
+.list-type li {
+  position: relative;
+}
+.list-type li > strong {
+  width: 70px;
+  position: absolute;
+  left: 0;
+}
+.list-type li > strong:after {
+  content: "";
+  width: 1px;
+  height: 13px;
+  background: #a3a3a3;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: 10px;
+}
+.list-type li p {
+  padding-left: 70px;
+}
+
+.copy-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: -apple-system, "맑은 고딕", "malgun gothic", "AppleGothicNeoSD", "Apple SD 산돌고딕 Neo", "Microsoft NeoGothic", "Droid sans", sans-serif;
+  background: #1A1A40;
+  color: #fff;
+  border-radius: 5px;
+  padding: 0 7px;
+  font-size: 0.7em;
+  height: 23px;
+  line-height: 1;
+}
+
+.message-box {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 97;
+  transform: translateY(100%);
+  text-align: center;
+  transition: 0.3s;
+}
+.message-box span {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 38px;
+  background: #000000;
+  border-radius: 30px;
+  padding: 0 20px;
+  color: #fff;
+  font-family: -apple-system, "맑은 고딕", "malgun gothic", "AppleGothicNeoSD", "Apple SD 산돌고딕 Neo", "Microsoft NeoGothic", "Droid sans", sans-serif;
+  font-size: 0.8em;
+  opacity: 0.8;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+}
+.message-box.active {
+  bottom: 7%;
+  transform: translateY(0);
+}
+
+.btn-ico {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 5px;
+}
+
+.ico-phone {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background: url(../images/icon/phone-solid.svg) center no-repeat;
+  background-size: cover;
+}
+
+.ico-message {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  background: url(../images/icon/envelope-solid.svg) center no-repeat;
+  background-size: cover;
+}
+
+/*# sourceMappingURL=ui.css.map */

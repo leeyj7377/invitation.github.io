@@ -1,0 +1,76 @@
+@charset "UTF-8";
+
+@import '../common/variable';
+
+//icon
+//화살표 아이콘 (size,컬러값,방향)
+//@include icon-arr(10, #000, bottom);
+
+//icon
+@mixin icon-arr($size:8,$color:$CBlack,$rotate:right,$border:1) {
+  display: inline-block;
+  width: $size+px;
+  height: $size+px;
+  border: {
+    style: solid;
+    color: transparent $color $color transparent;
+    width: 0 $border+px $border+px 0;
+  }
+  @if $rotate == top {
+    @include prefix(transform, rotate(-135deg), webkit ms)
+  } @else if $rotate == left {
+    @include prefix(transform, rotate(135deg), webkit ms)
+  } @else if $rotate == right {
+    @include prefix(transform, rotate(-45deg), webkit ms)
+  } @else if $rotate == bottom {
+    @include prefix(transform, rotate(45deg), webkit ms)
+  }
+}
+
+//정렬
+@mixin abs($abs:c){
+  position:absolute;
+  @if $abs == h{//horizontal 수평
+    left:50%;
+    transform:translateX(-50%);
+  } @else if $abs == v{//vertical 수직
+    top:50%;
+    transform:translateY(-50%);
+  } @else if $abs == c{//center 중앙
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+  }
+}
+
+//prefix
+
+//벤더 프리픽스 (속성,속성값,브라우저 추가)
+//@include prefix(transition, all 0.15s ease-in-out, webkit ms);
+
+@mixin prefix($property, $value, $prefixes: ()) {
+  @each $prefix in $prefixes {
+    #{'-' + $prefix + '-' + $property}: $value;
+  }
+  #{$property}: $value;
+}
+
+//Media Query
+
+@mixin desktop {
+  @media all and (max-width: #{$breakpoint-desktop}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media all and (max-width: #{$breakpoint-tablet}) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: #{$breakpoint-mobile}) {
+    @content;
+  }
+}
