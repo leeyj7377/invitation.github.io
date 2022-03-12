@@ -14,11 +14,12 @@ section {
   margin: 0 auto;
 }
 
-.delighter {
-  @include prefix(transition, all .7s ease-out, webkit);
-  @include prefix(transform, translateY(50%), webkit);
+.eft {
+  transition: all .7s ease-out;
+  -webkit-transition: all .7s ease-out;
+  transform: translateY(50%);
+  -webkit-transform: translateY(50%);
   opacity: 0;
-
   &.started {
     transform: none;
     opacity: 1;
@@ -27,7 +28,6 @@ section {
 
 .visual {
   text-align: right;
-
   &.active {
     .bg {
       transform: scaleY(1);
@@ -43,35 +43,36 @@ section {
       opacity: 1;
     }
   }
-
   &-img {
     padding: 0 10vw 15vw;
     position: relative;
     height:70vh;
-    .inner {
-    }
     .bg {
-      width:100%;height:100%;
+      width: 100%;
+      height: 100%;
       overflow: hidden;
       background-color: rgba(241, 192, 191, .2);
       will-change: transform;
-      @include prefix(transform, scaleY(0), webkit);
-      @include prefix(transform-origin, top, webkit);
-      @include prefix(transition, transform 1s cubic-bezier(.25, 0, .1, 1), webkit);
+      transform: scaleY(0);
+      -webkit-transform: scaleY(0);
+      transform-origin: top;
+      -webkit-transform-origin: top;
+      transition: transform 1s cubic-bezier(.25, 0, .1, 1);
+      -webkit-transition: transform 1s cubic-bezier(.25, 0, .1, 1);
     }
     .img {
       opacity: 0;
-      @include prefix(transform, scale(1.3), webkit);
       transform: scale(1.3);
+      -webkit-transform: scale(1.3);
       transition: transform 1s cubic-bezier(.25, 0, .1, 1), opacity .8s cubic-bezier(.25, 0, .1, 1);
+      -webkit-transition: transform 1s cubic-bezier(.25, 0, .1, 1), opacity .8s cubic-bezier(.25, 0, .1, 1);
       height: 100%;
       transition-delay: 1s;
-      background-size:cover;
+      background-size: cover;
       background-position: center bottom;
-      width:100%;
+      width: 100%;
     }
   }
-
   &-title {
     font-family: $fontA;
     position: absolute;
@@ -80,15 +81,15 @@ section {
     font-size: 4rem;
     line-height: 1;
     transition: all .8s ease-out 1.3s;
+    -webkit-transition: all .8s ease-out 1.3s;
     transform: translateY(50%);
+    -webkit-transform: translateY(50%);
     opacity: 0;
   }
-
   .date {
     font-family: $fontE;
     padding: 5vw 10vw 1vw;
   }
-
   .name {
     @include abs(v);
     right: 3.5vw;
@@ -100,8 +101,8 @@ section {
 .intro {
   padding: 120px 0 60px;
   transition: all 1s ease-out;
+  -webkit-transition: all 1s ease-out;
   opacity: 0;
-
   &.active {
     opacity: 1;
     transition-delay: 2s;
@@ -453,8 +454,10 @@ section {
   right: 0;
   z-index: 97;
   transform: translateY(100%);
+  -webkit-transform: translateY(100%);
   text-align: center;
-  transition: 0.3s;
+  transition: 0.3s all ease-out;
+  -webkit-transition: 0.3s all ease-out;
 
   span {
     display: inline-flex;

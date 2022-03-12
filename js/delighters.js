@@ -1,3 +1,4 @@
+
 /*
 	Delighters - Add CSS animations to delight users as they scroll down.
 	(c) 2018 - Q42
@@ -6,16 +7,16 @@
 */
 var Delighters = new (function() {
 	var self = this,
-		dels = this.dels = [],
+			dels = this.dels = [],
 
-		// default options
-		options = {
-			attribute: 	'data-delighter',
-			classNames: ['delighter', 'started', 'ended'],
-			start: 			0.9, // default start threshold
-			end: 				0.75, // default end threshold
-			autoInit: 	true 	// initialize when DOMContentLoaded
-		};
+			// default options
+			options = {
+				attribute: 	'data-delighter',
+				classNames: ['delighter', 'started', 'ended'],
+				start: 			0.75, // default start threshold
+				end: 				0.75, // default end threshold
+				autoInit: 	true 	// initialize when DOMContentLoaded
+			};
 
 	document.addEventListener("DOMContentLoaded", function() {
 		if (options.autoInit) init();
@@ -31,16 +32,16 @@ var Delighters = new (function() {
 
 		for (var i=0; i<els.length; i++) {
 			var el 			= els[i],
-				def 		= el.getAttribute(options.attribute, 2),
-				pairs 	= def.split(';'),
-				del 		= {};
-			del.start = options.start;
-			del.end = options.end;
+					def 		= el.getAttribute(options.attribute, 2),
+					pairs 	= def.split(';'),
+					del 		= {};
+					del.start = options.start;
+					del.end = options.end;
 
 			for (var j=0; j<pairs.length; j++) {
 				var pair 	= pairs[j].split(':'),
-					name 	= pair[0],
-					val 	= isNaN(pair[1] * 1)? pair[1] : pair[1] * 1;
+						name 	= pair[0],
+						val 	= isNaN(pair[1] * 1)? pair[1] : pair[1] * 1;
 				if (name) del[name] = (val === undefined)? true : val;
 			}
 
@@ -57,9 +58,9 @@ var Delighters = new (function() {
 		var viewportHeight = window.innerHeight;
 		for (var i=0; i<dels.length; i++) {
 			var del = dels[i],
-				box = del.el.getBoundingClientRect(),
-				factorStart = box.top / viewportHeight,
-				factorEnd = box.bottom / viewportHeight;
+					box = del.el.getBoundingClientRect(),
+					factorStart = box.top / viewportHeight,
+					factorEnd = box.bottom / viewportHeight;
 
 			if (del.debug) {
 				if (factorStart >= 0 && factorStart <= 1) {
