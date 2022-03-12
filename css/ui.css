@@ -24,11 +24,11 @@ section {
 .visual {
   text-align: right;
 }
-.visual.active .img-box {
+.visual.active .bg {
   transform: scaleY(1);
   -webkit-transform: scaleY(1);
 }
-.visual.active img {
+.visual.active .img {
   opacity: 1;
   -webkit-transform: scale(1);
   transform: scale(1);
@@ -40,8 +40,11 @@ section {
 .visual-img {
   padding: 0 10vw 15vw;
   position: relative;
+  height: 70vh;
 }
-.visual-img .img-box {
+.visual-img .bg {
+  width: 100%;
+  height: 100%;
   overflow: hidden;
   background-color: rgba(241, 192, 191, 0.2);
   will-change: transform;
@@ -52,7 +55,7 @@ section {
   -webkit-transition: transform 1s cubic-bezier(0.25, 0, 0.1, 1);
   transition: transform 1s cubic-bezier(0.25, 0, 0.1, 1);
 }
-.visual-img img {
+.visual-img .img {
   opacity: 0;
   -webkit-transform: scale(1.3);
   transform: scale(1.3);
@@ -60,6 +63,9 @@ section {
   transition: transform 1s cubic-bezier(0.25, 0, 0.1, 1), opacity 0.8s cubic-bezier(0.25, 0, 0.1, 1);
   height: 100%;
   transition-delay: 1s;
+  background-size: cover;
+  background-position: center bottom;
+  width: 100%;
 }
 .visual-title {
   font-family: "AnsteryScript", sans-serif;

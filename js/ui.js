@@ -49,14 +49,14 @@ $(document).ready(function () {
     $('.visual').addClass('active');
     $('.intro').addClass('active');
 
-    //motion
-    $(window).scroll(function (e) {
-        var nTop = $(document).scrollTop();
-
-        if (nTop > 400) {
-            $('.visual').removeClass('active');
-        } else {
-            $('.visual').addClass('active');
-        }
-    });
+    // //motion
+    // $(window).scroll(function (e) {
+    //     var nTop = $(document).scrollTop();
+    //
+    //     if (nTop > 400) {
+    //         $('.visual').removeClass('active');
+    //     } else {
+    //         $('.visual').addClass('active');
+    //     }
+    // });
 });
