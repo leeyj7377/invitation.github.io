@@ -7,20 +7,66 @@
 section {
   position: relative;
   text-align: center;
-  overflow: hidden;
 }
 
 #main {
-  max-width:640px;
-  margin:0 auto;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.delighter {
+  @include prefix(transition, all .7s ease-out, webkit);
+  @include prefix(transform, translateY(50%), webkit);
+  opacity: 0;
+
+  &.started {
+    transform: none;
+    opacity: 1;
+  }
 }
 
 .visual {
   text-align: right;
 
+  &.active {
+    .img-box {
+      transform: scaleY(1);
+      -webkit-transform: scaleY(1);
+    }
+
+    img {
+      opacity: 1;
+      -webkit-transform: scale(1);
+      transform: scale(1);
+    }
+
+    .visual-title {
+      transform: none;
+      opacity: 1;
+    }
+  }
+
   &-img {
     padding: 0 10vw 15vw;
     position: relative;
+
+    .img-box {
+      overflow: hidden;
+      background-color: rgba(241, 192, 191, .2);
+      will-change: transform;
+      @include prefix(transform, scaleY(0), webkit);
+      @include prefix(transform-origin, top, webkit);
+      @include prefix(transition, transform 1s cubic-bezier(.25, 0, .1, 1), webkit);
+    }
+
+    img {
+      opacity: 0;
+      @include prefix(transform, scale(1.3), webkit);
+      transform: scale(1.3);
+      transition: transform 1s cubic-bezier(.25, 0, .1, 1), opacity .8s cubic-bezier(.25, 0, .1, 1);
+      height: 100%;
+      transition-delay: 1s;
+    }
   }
 
   &-title {
@@ -30,6 +76,9 @@ section {
     bottom: 0;
     font-size: 4rem;
     line-height: 1;
+    transition: all .8s ease-out 1.3s;
+    transform: translateY(50%);
+    opacity: 0;
   }
 
   .date {
@@ -46,13 +95,19 @@ section {
 }
 
 .intro {
-  padding: 100px 0 60px;
+  padding: 120px 0 60px;
+  transition: all 1s ease-out;
+  opacity: 0;
+
+  &.active {
+    opacity: 1;
+    transition-delay: 2s;
+  }
 }
 
 .profile {
   position: relative;
   padding: 120px 0;
-
   &:before {
     content: '';
     @include abs(h);
@@ -61,12 +116,10 @@ section {
     background: $CGray3;
     top: 0;
   }
-
   p {
     font-size: 1.2em;
     letter-spacing: 0.1em;
   }
-
   .gray {
     color: $CGray2;
     font-size: .9em;
@@ -74,27 +127,54 @@ section {
 }
 
 .gallery {
+  &-slider {
+    overflow: hidden;
+  }
   &-top {
-    position:relative;
+    position: relative;
     height: 80%;
-    width:calc(100% - 20px);
-    margin:0 10px;
+    width: 100%;
   }
   &-thumbs {
     height: 20%;
     box-sizing: border-box;
-    padding: 10px 0;
+    padding: 10px 0 30px;
     .swiper {
-      &-wrapper {
-        margin-left: -33%;
-        &.reset {
-          margin-left:0;
+      &-pagination {
+        bottom: 0;
+
+        &-bullet {
+          opacity: 1;
+          background: $CGray3;
+          width: 6.5px;
+          height: 6.5px;
+
+          &-active {
+            background: $CPoint3;
+          }
         }
       }
       &-slide {
-        width: 30%;
-        height: 100%;
+        position: relative;
+        width: 40%;
+        overflow: hidden;
         opacity: 0.6;
+        &:before {
+          content: "";
+          display: block;
+          padding-top: 100%
+        }
+
+        img {
+          position: absolute;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          object-fit: cover;
+          vertical-align: middle;
+        }
+
         &-active {
           opacity: 1;
         }
@@ -112,6 +192,7 @@ section {
     width: 84%;
     margin: 0 auto;
     table-layout: fixed;
+
     tr {
       th, td {
         padding: 10px 5px;
@@ -164,10 +245,12 @@ section {
   }
 
   .address {
-    color:$CBlack;
-    line-height:2;
+    color: $CBlack;
+    line-height: 2;
+
     .focus {
       font-size: 1.4em;
+
       strong {
         font-weight: 600;
       }
@@ -210,6 +293,7 @@ section {
 
 .contact {
   padding: 120px 8vw;
+
   dl {
     border: 1px solid $CGray3;
 
@@ -229,9 +313,24 @@ section {
       margin-top: 30px;
     }
   }
+
   .desc {
-    font-size:.85em;
-    margin:50px 0;
+    font-size: .85em;
+    margin: 50px 0;
+  }
+
+  .sub {
+    font-size: .85em;
+    padding-top: 100px;
+    position: relative;
+    &:before {
+      content: '';
+      width: 20px;
+      height: 1px;
+      background: $CBlack;
+      @include abs(h);
+      top: 75px;
+    }
   }
   .grid {
     & + .grid {
@@ -257,25 +356,28 @@ section {
       color: $CGray5;
     }
   }
+
   #copyTarget {
-    position:absolute;
-    top:-9999em;
-    left:-9999em;
+    position: absolute;
+    top: -9999em;
+    left: -9999em;
   }
 }
 
 .banner {
-  height:300px;
+  height: 300px;
   background: url(../images/banner.jpg) bottom no-repeat;
   background-size: contain;
-  background-attachment : fixed;
+  background-attachment: fixed;
+
   .title-wrap {
-    width:100%;
+    width: 100%;
     @include abs(c);
     color: #fff;
+
     .en {
       font-family: $fontA;
-      font-size:3em;
+      font-size: 3em;
       line-height: 1;
     }
   }
@@ -333,23 +435,24 @@ section {
   justify-content: center;
   font-family: $fontK;
   background: $CPoint3;
-  color:#fff;
+  color: #fff;
   border-radius: 5px;
   padding: 0 7px;
   font-size: .7em;
-  height:23px;
-  line-height:1;
+  height: 23px;
+  line-height: 1;
 }
 
 .message-box {
   position: fixed;
   bottom: 0;
   left: 0;
-  right:0;
+  right: 0;
   z-index: 97;
   transform: translateY(100%);
   text-align: center;
   transition: 0.3s;
+
   span {
     display: inline-flex;
     align-items: center;
@@ -364,8 +467,9 @@ section {
     opacity: 0.8;
     box-shadow: 0 1px 3px rgba(0, 0, 0, .12), 0 1px 2px rgba(0, 0, 0, .24);
   }
+
   &.active {
-    bottom:7%;
+    bottom: 7%;
     transform: translateY(0);
   }
 }
