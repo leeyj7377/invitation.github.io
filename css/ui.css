@@ -479,6 +479,7 @@ section {
   .visual-img {
     height: 85vh;
     padding: 0 6vw 10vh;
+    background-position: center;
   }
   .visual-title {
     bottom: 2vw;
