@@ -103,6 +103,11 @@ section {
   opacity: 1;
   transition-delay: 2s;
 }
+.intro .text {
+  font-size: 0.85em;
+  padding-bottom: 60px;
+  position: relative;
+}
 
 .profile {
   position: relative;
@@ -130,6 +135,9 @@ section {
 .gallery-slider {
   overflow: hidden;
 }
+.gallery-slider.started .gallery-thumbs {
+  opacity: 1;
+}
 .gallery-top {
   position: relative;
   height: 80%;
@@ -139,6 +147,10 @@ section {
   height: 20%;
   box-sizing: border-box;
   padding: 10px 0 30px;
+  transition: all 0.7s ease-out;
+  -webkit-transition: all 0.7s ease-out;
+  transition-delay: 1.5s;
+  opacity: 0;
 }
 .gallery-thumbs .swiper-pagination {
   bottom: 0;
@@ -453,6 +465,34 @@ section {
   height: 15px;
   background: url(../images/icon/envelope-solid.svg) center no-repeat;
   background-size: cover;
+}
+
+@media all and (min-width: 1080px) {
+  body {
+    font-size: 16px;
+  }
+
+  #main {
+    max-width: 750px;
+  }
+
+  .visual-img {
+    height: 85vh;
+    padding: 0 6vw 10vh;
+  }
+  .visual-title {
+    bottom: 2vw;
+  }
+  .visual .date {
+    padding: 1vw 6vw 1vw 0;
+  }
+
+  .location .guide {
+    padding: 0 4vw;
+  }
+  .location .map > div {
+    width: 750px !important;
+  }
 }
 
 /*# sourceMappingURL=ui.css.map */

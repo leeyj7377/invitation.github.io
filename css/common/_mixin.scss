@@ -58,13 +58,13 @@
 //Media Query
 
 @mixin desktop {
-  @media all and (max-width: #{$breakpoint-desktop}) {
+  @media all and (min-width: #{$breakpoint-desktop}) {
     @content;
   }
 }
 
 @mixin tablet {
-  @media all and (max-width: #{$breakpoint-tablet}) {
+  @media all and (min-width: #{$breakpoint-tablet}) {
     @content;
   }
 }
