@@ -53,7 +53,7 @@ $(document).ready(function () {
     $(window).scroll(function (e) {
         var nTop = $(document).scrollTop();
 
-        if (nTop > 400) {
+        if (nTop > 500) {
             $('.visual').removeClass('active');
         } else {
             $('.visual').addClass('active');
